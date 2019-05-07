@@ -21,8 +21,8 @@ architecture rtl of movement_full is
 begin
   -- GATES
 
-  s_and1 <= s_posOut(1) and s_dirOut;
-  s_and2 <= s_posOut(width-2) and not(s_dirOut);
+  s_and1 <= s_posOut(7) and s_dirOut;
+  s_and2 <= s_posOut(1) and not(s_dirOut);
   s_xor  <= ext_change or s_and1 or s_and2;
 
 

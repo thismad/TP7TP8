@@ -92,11 +92,11 @@ enable => s_enable,
   --debouncer_down : debouncer
     --port map (s_button_down, s_enable, s_reset, clock, s_button_down_o);
 
-  --display : for y in 8 downto 0 generate
-   -- oneline for x in 11 downto 0 generate
-        --      playfield(y*12+x) <= Y_pos(y) and X_pos(x);
-       --     end generate oneline;
-  --end generate display;
+  display : for y in 8 downto 0 generate
+    oneline for x in 11 downto 0 generate
+              playfield(y*12+x) <= Y_pos(y) and X_pos(x);
+            end generate oneline;
+  end generate display;
 
 
 

@@ -35,6 +35,7 @@ begin
     if(rising_edge(clock)) then
                            if(enable = '1') then s_current_state <= s_next_state;
                            end if;
+
     end if;
   end process;
 end rtl;

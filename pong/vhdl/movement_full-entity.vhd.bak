@@ -3,7 +3,7 @@ use ieee.std_logic_1164.all;
 
 entity movement_full is
 generic(WIDTH : natural := 9;  -- adding the length
-        INIT : std_logic_vector := "000010000");
+        INIT : std_logic_vector => "000010000");
 port(ext_change : in std_logic;
      enable     : in std_logic;
      reset      : in std_logic;
