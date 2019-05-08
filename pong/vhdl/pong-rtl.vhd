@@ -1,7 +1,7 @@
 architecture rtl of pong is
   component movement_full
-generic (width : natural;
-	INIT : std_logic_vector);
+    generic (width : natural;
+             INIT  : std_logic_vector);
     port (ext_change, enable, reset, clock : in  std_logic;
           pos                              : out std_logic_vector(width-1 downto 0);
           dir_o                            : out std_logic);
@@ -23,13 +23,13 @@ generic (width : natural;
          over   : out std_logic);
   end component;
 
-component debouncer 
-port(button   : in std_logic;
-     enable   : in std_logic;
-     reset    : in std_logic;
-     clock    : in std_logic;
-     button_o : out std_logic);
-end component;
+  component debouncer
+    port(button   : in  std_logic;
+         enable   : in  std_logic;
+         reset    : in  std_logic;
+         clock    : in  std_logic;
+         button_o : out std_logic);
+  end component;
 
   component bat
     port(button_up   : in  std_logic;
@@ -40,9 +40,19 @@ end component;
          bat_o       : out std_logic_vector(8 downto 0));
   end component;
 
+  component collision
+    port(x_dir   : in  std_logic;
+         y_dir   : in  std_logic;
+         x_pos   : in  std_logic_vector(11 downto 0);
+         y_pos   : in  std_logic_vector(8 downto 0);
+         bat_pos : in  std_logic_vector(8 downto 0);
+         change  : out std_logic);
+  end component;
 
 
-  signal s_enable        : std_logic;
+
+
+  constant s_enable       : std_logic := '1';
   signal Y_pos           : std_logic_vector (8 downto 0);
   signal X_pos           : std_logic_vector (11 downto 0);
   signal s_over          : std_logic;
@@ -52,9 +62,10 @@ end component;
   signal s_button_down_o : std_logic;
   signal s_reset         : std_logic;
   signal s_bat_o         : std_logic_vector(8 downto 0);
+  signal s_dir_oY        : std_logic;
+  signal s_dir_oX        : std_logic;
+  signal s_change        : std_logic;
 
---TEST CONSTANT TO DELETE
-constant  c_ext_change : std_logic := '1';
 
 
 
@@ -63,30 +74,30 @@ begin
   s_button_up   <= not(n_button_up);
   s_button_down <= not(n_button_down);
 
-  clock_div : clock_divider
-    port map (clock  => clock,
-              reset  => s_reset,
-              enable => s_enable);
+  --clock_div : clock_divider
+    --port map (clock  => clock,
+         --     reset  => s_reset,
+          --    enable => s_enable);
 
   movement_y : movement_full
     generic map (width => 9, INIT => "000010000")
-  port map (
-	ext_change => c_ext_change, 
-	enable => s_enable,
-            reset  => s_reset,
-            clock  => clock,
-            pos    => Y_pos,
-dir_o => open);
+    port map (
+      ext_change => s_change,
+      enable     => s_enable,
+      reset      => s_reset,
+      clock      => clock,
+      pos        => Y_pos,
+      dir_o      => s_dir_oY);
 
 
   movement_x : movement_full
     generic map (width => 12, INIT => "000000100000")
-    port map (ext_change => c_ext_change,
-enable => s_enable,
-              reset  => s_reset,
-              clock  => clock,
-              pos    => X_pos,
-		dir_o => open);
+    port map (ext_change => s_change,
+              enable     => s_enable,
+              reset      => s_reset,
+              clock      => clock,
+              pos        => X_pos,
+              dir_o      => s_dir_oX);
 
   bat1 : bat
     port map (s_button_up_o, s_button_down_o, s_enable, s_reset, clock, s_bat_o);
@@ -100,10 +111,13 @@ enable => s_enable,
   debouncer_down1 : debouncer
     port map (s_button_down, s_enable, s_reset, clock, s_button_down_o);
 
+  collision1 : collision
+    port map (s_dir_oX, s_dir_oY, X_pos, Y_pos, s_bat_o, s_change);
+
   display : for y in 8 downto 0 generate
     oneline : for x in 11 downto 0 generate
-              playfield(y*12+x) <= Y_pos(y) and X_pos(x);
-            end generate oneline;
+      playfield(y*12+x) <= Y_pos(y) and X_pos(x);
+    end generate oneline;
   end generate display;
 
 
