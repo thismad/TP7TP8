@@ -6,7 +6,7 @@ architecture rtl of movement_full is
   end component direction;
 
   component movement
-	
+	generic (width : natural; INIT : std_logic_vector);
     port(dir, enable, reset, clock : in  std_logic;
          pos                       : out std_logic_vector);
   end component movement;
@@ -36,7 +36,7 @@ begin
               dir    => s_dirOut);
 
   mov : movement
-generic map (width => 9, INIT => (4 => '1', others => '0'))
+generic map (width => width, INIT => INIT)
     port map (dir    => s_dirOut,
               enable => enable,
               reset  => reset,

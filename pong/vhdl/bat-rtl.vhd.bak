@@ -12,9 +12,9 @@ begin
   LogicUpdate : process (clock, reset, s_next_state, s_current_state)
   begin
     if(button_up = '1' and s_current_state /= c_up) then
-      s_next_state <= s_current_state(8 downto 1) & '0';
+      s_next_state <= s_current_state & '0';
     elsif (button_down = '1' and s_current_state /= c_down) then
-      s_next_state <= '0' & s_current_state(7 downto 0);
+      s_next_state <= '0' & s_current_state;
     end if;
   end process;
 

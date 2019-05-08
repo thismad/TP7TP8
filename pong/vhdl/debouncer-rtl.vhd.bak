@@ -5,7 +5,7 @@ architecture rtl of debouncer is
   signal s_three    : std_logic;
   signal s_four     : std_logic;
   signal s_button_o : std_logic;
- signal s_or2 : std_logic;
+ signal s_or : std_logic;
 
 begin
   s_or <= enable or reset;

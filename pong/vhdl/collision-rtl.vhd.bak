@@ -1,8 +1,8 @@
 architecture rtl of collision is
 
   signal   s_change    : std_logic;
-  constant x_bat_right : std_logic_vector := "000000000001";  -- pos x of the bat with a -1
-  constant x_bat_left  : std_logic_vector := "000000000100"; 
+  constant x_bat_right : std_logic_vector := "000000000100";  -- pos x of the bat with a -1
+  constant x_bat_left  : std_logic_vector := "000000000001"; 
   constant c_compared : std_logic_vector(8 downto 0) := (others => '0');
   signal   s_next_x    : std_logic_vector (11 downto 0);
   signal   s_next_y    : std_logic_vector (8 downto 0);

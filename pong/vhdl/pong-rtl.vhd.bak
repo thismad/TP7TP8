@@ -23,6 +23,13 @@ generic (width : natural;
          over   : out std_logic);
   end component;
 
+component debouncer 
+port(button   : in std_logic;
+     enable   : in std_logic;
+     reset    : in std_logic;
+     clock    : in std_logic;
+     button_o : out std_logic);
+
   component bat
     port(button_up   : in  std_logic;
          button_down : in  std_logic;
@@ -72,7 +79,7 @@ dir_o => open);
 
 
   movement_x : movement_full
-    generic map (width => 12, INIT => "0000000100000")
+    generic map (width => 12, INIT => "000000100000")
     port map (ext_change => c_ext_change,
 enable => s_enable,
               reset  => s_reset,
@@ -80,20 +87,20 @@ enable => s_enable,
               pos    => X_pos,
 		dir_o => open);
 
-  --bat : bat
-   -- port map (s_button_up_o, s_button_down_o, s_enable, reset, clock, s_bat_o);
+  bat1 : bat
+    port map (s_button_up_o, s_button_down_o, s_enable, s_reset, clock, s_bat_o);
 
-  --score : score
-   -- port map(X_pos, s_enable, reset, clock, user, sys, s_open);
+  score1 : score
+    port map(X_pos, s_enable, s_reset, clock, user, sys, open);
 
-  --debouncer_up : debouncer
-   -- port map (s_button_up, s_enable, s_reset, clock, s_button_up_o);
+  debouncer_up1 : debouncer
+    port map (s_button_up, s_enable, s_reset, clock, s_button_up_o);
 
-  --debouncer_down : debouncer
-    --port map (s_button_down, s_enable, s_reset, clock, s_button_down_o);
+  debouncer_down1 : debouncer
+    port map (s_button_down, s_enable, s_reset, clock, s_button_down_o);
 
   display : for y in 8 downto 0 generate
-    oneline for x in 11 downto 0 generate
+    oneline : for x in 11 downto 0 generate
               playfield(y*12+x) <= Y_pos(y) and X_pos(x);
             end generate oneline;
   end generate display;

@@ -46,7 +46,7 @@ begin
         when c7 => s_next_ScoreS <= c8;
         when c8 => s_next_ScoreS <= c9;
         when c9 => s_next_ScoreS <= c9;
-	when others => s_next_ScoreS <= c9;
+	when others => s_nextr_ScoreS <= c9;
       end case;
       end if;
     end if;
