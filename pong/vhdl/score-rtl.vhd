@@ -2,23 +2,24 @@ architecture rtl of score is
 
   constant c0 : std_logic_vector := "11111100";
   constant c1 : std_logic_vector := "01100000";
-  constant c2 : std_logic_vector := "11011100";
-  constant c3 : std_logic_vector := "11110100";
+  constant c2 : std_logic_vector := "11011010";
+  constant c3 : std_logic_vector := "11110010";
   constant c4 : std_logic_vector := "01100110";
   constant c5 : std_logic_vector := "10110110";
   constant c6 : std_logic_vector := "10111110";
   constant c7 : std_logic_vector := "11100000";
   constant c8 : std_logic_vector := "11111110";
   constant c9 : std_logic_vector := "11110110";
+  constant INVALID : std_logic_vector := "11111111";
 
   signal s_scoreU, s_next_scoreU, s_scoreS, s_next_scoreS : std_logic_vector (7 downto 0);
 
 begin
   --LogicUpdate
 
-  LogicUpdate : process (enable, clock)
+  LogicUpdate : process (enable, clock, X_pos,s_scoreS)
   begin
-    if(enable = '1') then
+   
       if X_pos = ("000000000001") then  -- gauche
         case s_scoreU is
           when c0 => s_next_scoreU <= c1;
@@ -31,10 +32,10 @@ begin
         when c7 => s_next_ScoreU <= c8;
         when c8 => s_next_ScoreU <= c9;
         when c9 => s_next_ScoreU <= c9;
-	when others => s_next_ScoreU <= c9;
+	when others => s_next_ScoreU <= INVALID;
       end case;
 
-      elsif X_pos = ("000000000000") then
+      elsif X_pos = ("100000000000") then
         case s_scoreS is
           when c0 => s_next_scoreS <= c1;
         when c1 => s_next_scoreS <= c2;
@@ -46,10 +47,13 @@ begin
         when c7 => s_next_ScoreS <= c8;
         when c8 => s_next_ScoreS <= c9;
         when c9 => s_next_ScoreS <= c9;
-	when others => s_next_ScoreS <= c9;
+	when others => s_next_ScoreS <= INVALID;
       end case;
+		else s_next_scoreS <= s_scoreS;
+	 s_next_scoreU <= s_scoreU;
       end if;
-    end if;
+		
+    
   end process;
   --FlipFlop
 
@@ -65,7 +69,7 @@ end process;
 FlipFlop_scoreS : process (enable, clock , s_next_ScoreS, s_scoreS)
 begin
   if(rising_edge(clock)) then
-    if (reset = '1') then s_scoreU <= c0;
+    if (reset = '1') then s_scoreS <= c0;
     elsif (enable = '1') then s_scoreS  <= s_next_ScoreS;
   end if;
 end if;

@@ -49,10 +49,26 @@ architecture rtl of pong is
          change  : out std_logic);
   end component;
 
+  component clockOver 
+   PORT ( clock   : IN  std_logic;
+          reset   : IN  std_logic;
+          enable  : OUT std_logic );
+END component;
+
+component scoreOver
+port(x_pos  : in std_logic_vector(11 downto 0);
+     enable : in std_logic;
+     reset  : in std_logic;
+     clock  : in std_logic;
+     user   : out std_logic_vector(7 downto 0); --player score
+     sys    : out std_logic_vector(7 downto 0); --system score
+     over   : out std_logic);
+end component;
 
 
 
-  constant s_enable       : std_logic := '1';
+
+  signal s_enable       : std_logic;
   signal Y_pos           : std_logic_vector (8 downto 0);
   signal X_pos           : std_logic_vector (11 downto 0);
   signal s_over          : std_logic;
@@ -65,6 +81,17 @@ architecture rtl of pong is
   signal s_dir_oY        : std_logic;
   signal s_dir_oX        : std_logic;
   signal s_change        : std_logic;
+  signal s_user : std_logic_vector (7 downto 0);
+  signal s_user_over : std_logic_vector (7 downto 0);
+  signal s_sys : std_logic_vector (7 downto 0);
+  signal s_sys_over : std_logic_vector (7 downto 0);
+  signal s_force_reset : std_logic; 
+  signal s_over_enable : std_logic;
+  constant c_reset : std_logic := '0';
+  constant c_batPosX : std_logic_vector := "000000000010";
+  constant c_ext_change : std_logic := '0';   --car en cas de contact avec la bat on ne change pas l'angle suivant y
+ --constant s_change : std_logic := '0';
+ constant c_x_pos_over : std_logic_vector := "100000000000";
 
 
 
@@ -74,15 +101,16 @@ begin
   s_button_up   <= not(n_button_up);
   s_button_down <= not(n_button_down);
 
-  --clock_div : clock_divider
-    --port map (clock  => clock,
-         --     reset  => s_reset,
-          --    enable => s_enable);
+  clock_div : clock_divider
+    port map (clock  => clock,
+              reset  => s_reset,
+             enable => s_enable);
 
+				 
   movement_y : movement_full
     generic map (width => 9, INIT => "000010000")
     port map (
-      ext_change => s_change,
+      ext_change => c_ext_change,
       enable     => s_enable,
       reset      => s_reset,
       clock      => clock,
@@ -100,10 +128,10 @@ begin
               dir_o      => s_dir_oX);
 
   bat1 : bat
-    port map (s_button_up_o, s_button_down_o, s_enable, s_reset, clock, s_bat_o);
+   port map (s_button_up_o, s_button_down_o, s_enable, s_reset, clock, s_bat_o);
 
   score1 : score
-    port map(X_pos, s_enable, s_reset, clock, user, sys, open);
+    port map(X_pos, s_enable, s_reset, clock, s_user, s_sys, s_over);
 
   debouncer_up1 : debouncer
     port map (s_button_up, s_enable, s_reset, clock, s_button_up_o);
@@ -113,10 +141,27 @@ begin
 
   collision1 : collision
     port map (s_dir_oX, s_dir_oY, X_pos, Y_pos, s_bat_o, s_change);
+	 
+	 clock_over : clockOver 
+	 port map (clock, s_reset, s_over_enable);
+	 
+	 score_over : scoreOver 
+	 port map (c_x_pos_over, s_over_enable, c_reset,clock , s_user_over, s_sys_over, open);
+	 
+	 user <= s_user when s_over = '0' else
+				s_sys_over;
+	 sys <= s_sys when s_over = '0' else
+				s_sys_over;
+	
+	 
+
+	
+
+	 
 
   display : for y in 8 downto 0 generate
     oneline : for x in 11 downto 0 generate
-      playfield(y*12+x) <= Y_pos(y) and X_pos(x);
+      playfield(y*12+x) <= (Y_pos(y) and X_pos(x)) or (c_batPosX(x) and s_bat_o(y));
     end generate oneline;
   end generate display;
 
