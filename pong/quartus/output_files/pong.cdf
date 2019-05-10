@@ -4,7 +4,7 @@ JedecChain;
 	DefaultMfr(6E);
 
 	P ActionCode(Cfg)
-		Device PartName(EP4CE30F23) Path("/home/student/Documents/TPCSN/TP7TP8/pong/quartus/output_files/") File("pong.sof") MfrSpec(OpMask(1));
+		Device PartName(EP4CE30F23) Path("/media/sf_student/TPCSN/TP7TP8/pong/quartus/output_files/") File("pong.sof") MfrSpec(OpMask(1));
 
 ChainEnd;
 

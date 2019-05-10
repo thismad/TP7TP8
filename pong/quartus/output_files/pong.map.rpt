@@ -1,5 +1,5 @@
 Analysis & Synthesis report for pong
-Thu May  9 00:49:24 2019
+Fri May 10 11:24:20 2019
 Quartus Prime Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
 
 
@@ -14,19 +14,18 @@ Quartus Prime Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
   8. User-Specified and Inferred Latches
-  9. Registers Removed During Synthesis
- 10. General Register Statistics
- 11. Inverted Register Statistics
- 12. Multiplexer Restructuring Statistics (Restructuring Performed)
- 13. Parameter Settings for User Entity Instance: movement_full:movement_y
- 14. Parameter Settings for User Entity Instance: movement_full:movement_y|movement:mov
- 15. Parameter Settings for User Entity Instance: movement_full:movement_x
- 16. Parameter Settings for User Entity Instance: movement_full:movement_x|movement:mov
- 17. Port Connectivity Checks: "scoreOver:score_over"
- 18. Port Connectivity Checks: "movement_full:movement_y"
- 19. Post-Synthesis Netlist Statistics for Top Partition
- 20. Elapsed Time Per Partition
- 21. Analysis & Synthesis Messages
+  9. General Register Statistics
+ 10. Inverted Register Statistics
+ 11. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 12. Parameter Settings for User Entity Instance: movement_full:movement_y
+ 13. Parameter Settings for User Entity Instance: movement_full:movement_y|movement:mov
+ 14. Parameter Settings for User Entity Instance: movement_full:movement_x
+ 15. Parameter Settings for User Entity Instance: movement_full:movement_x|movement:mov
+ 16. Port Connectivity Checks: "score:score1"
+ 17. Port Connectivity Checks: "movement_full:movement_y"
+ 18. Post-Synthesis Netlist Statistics for Top Partition
+ 19. Elapsed Time Per Partition
+ 20. Analysis & Synthesis Messages
 
 
 
@@ -52,15 +51,15 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Thu May  9 00:49:24 2019       ;
+; Analysis & Synthesis Status        ; Successful - Fri May 10 11:24:20 2019       ;
 ; Quartus Prime Version              ; 18.0.0 Build 614 04/24/2018 SJ Lite Edition ;
 ; Revision Name                      ; pong                                        ;
 ; Top-level Entity Name              ; pong                                        ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 472                                         ;
-;     Total combinational functions  ; 468                                         ;
-;     Dedicated logic registers      ; 102                                         ;
-; Total registers                    ; 102                                         ;
+; Total logic elements               ; 414                                         ;
+;     Total combinational functions  ; 410                                         ;
+;     Dedicated logic registers      ; 76                                          ;
+; Total registers                    ; 76                                          ;
 ; Total pins                         ; 128                                         ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
@@ -172,34 +171,30 @@ refer to the applicable agreement for further details.
 +----------------------------+-------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                               ;
-+-----------------------------------+-----------------+-----------------+--------------------------------------------------------------------+---------+
-; File Name with User-Entered Path  ; Used in Netlist ; File Type       ; File Name with Absolute Path                                       ; Library ;
-+-----------------------------------+-----------------+-----------------+--------------------------------------------------------------------+---------+
-; ../vhdl/score-rtl.vhd             ; yes             ; User VHDL File  ; /media/sf_student/TPCSN/TP7TP8/pong/vhdl/score-rtl.vhd             ;         ;
-; ../vhdl/score-entity.vhd          ; yes             ; User VHDL File  ; /media/sf_student/TPCSN/TP7TP8/pong/vhdl/score-entity.vhd          ;         ;
-; ../vhdl/pong-rtl.vhd              ; yes             ; User VHDL File  ; /media/sf_student/TPCSN/TP7TP8/pong/vhdl/pong-rtl.vhd              ;         ;
-; ../vhdl/pong-entity.vhd           ; yes             ; User VHDL File  ; /media/sf_student/TPCSN/TP7TP8/pong/vhdl/pong-entity.vhd           ;         ;
-; ../vhdl/movement_full-rtl.vhd     ; yes             ; User VHDL File  ; /media/sf_student/TPCSN/TP7TP8/pong/vhdl/movement_full-rtl.vhd     ;         ;
-; ../vhdl/movement_full-entity.vhd  ; yes             ; User VHDL File  ; /media/sf_student/TPCSN/TP7TP8/pong/vhdl/movement_full-entity.vhd  ;         ;
-; ../vhdl/movement-rtl.vhd          ; yes             ; User VHDL File  ; /media/sf_student/TPCSN/TP7TP8/pong/vhdl/movement-rtl.vhd          ;         ;
-; ../vhdl/movement-entity.vhd       ; yes             ; User VHDL File  ; /media/sf_student/TPCSN/TP7TP8/pong/vhdl/movement-entity.vhd       ;         ;
-; ../vhdl/direction-rtl.vhd         ; yes             ; User VHDL File  ; /media/sf_student/TPCSN/TP7TP8/pong/vhdl/direction-rtl.vhd         ;         ;
-; ../vhdl/direction-entity.vhd      ; yes             ; User VHDL File  ; /media/sf_student/TPCSN/TP7TP8/pong/vhdl/direction-entity.vhd      ;         ;
-; ../vhdl/debouncer-rtl.vhd         ; yes             ; User VHDL File  ; /media/sf_student/TPCSN/TP7TP8/pong/vhdl/debouncer-rtl.vhd         ;         ;
-; ../vhdl/debouncer-entity.vhd      ; yes             ; User VHDL File  ; /media/sf_student/TPCSN/TP7TP8/pong/vhdl/debouncer-entity.vhd      ;         ;
-; ../vhdl/collision-rtl.vhd         ; yes             ; User VHDL File  ; /media/sf_student/TPCSN/TP7TP8/pong/vhdl/collision-rtl.vhd         ;         ;
-; ../vhdl/collision-entity.vhd      ; yes             ; User VHDL File  ; /media/sf_student/TPCSN/TP7TP8/pong/vhdl/collision-entity.vhd      ;         ;
-; ../vhdl/clock_divider-rtl.vhdl    ; yes             ; User VHDL File  ; /media/sf_student/TPCSN/TP7TP8/pong/vhdl/clock_divider-rtl.vhdl    ;         ;
-; ../vhdl/clock_divider-entity.vhdl ; yes             ; User VHDL File  ; /media/sf_student/TPCSN/TP7TP8/pong/vhdl/clock_divider-entity.vhdl ;         ;
-; ../vhdl/bat-rtl.vhd               ; yes             ; User VHDL File  ; /media/sf_student/TPCSN/TP7TP8/pong/vhdl/bat-rtl.vhd               ;         ;
-; ../vhdl/bat-entity.vhd            ; yes             ; User VHDL File  ; /media/sf_student/TPCSN/TP7TP8/pong/vhdl/bat-entity.vhd            ;         ;
-; ../vhdl/clockOver-entity.vhd      ; yes             ; User VHDL File  ; /media/sf_student/TPCSN/TP7TP8/pong/vhdl/clockOver-entity.vhd      ;         ;
-; ../vhdl/clockOver-rtl.vhd         ; yes             ; User VHDL File  ; /media/sf_student/TPCSN/TP7TP8/pong/vhdl/clockOver-rtl.vhd         ;         ;
-; ../vhdl/scoreOver-entity.vhd      ; yes             ; User VHDL File  ; /media/sf_student/TPCSN/TP7TP8/pong/vhdl/scoreOver-entity.vhd      ;         ;
-; ../vhdl/scoreOver-rtl.vhd         ; yes             ; User VHDL File  ; /media/sf_student/TPCSN/TP7TP8/pong/vhdl/scoreOver-rtl.vhd         ;         ;
-+-----------------------------------+-----------------+-----------------+--------------------------------------------------------------------+---------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                           ;
++-----------------------------------------+-----------------+-----------------+--------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path        ; Used in Netlist ; File Type       ; File Name with Absolute Path                                             ; Library ;
++-----------------------------------------+-----------------+-----------------+--------------------------------------------------------------------------+---------+
+; ../vhdl/rendu/score-rtl.vhd             ; yes             ; User VHDL File  ; /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/score-rtl.vhd             ;         ;
+; ../vhdl/rendu/score-entity.vhd          ; yes             ; User VHDL File  ; /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/score-entity.vhd          ;         ;
+; ../vhdl/rendu/pong-rtl.vhd              ; yes             ; User VHDL File  ; /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/pong-rtl.vhd              ;         ;
+; ../vhdl/rendu/pong-entity.vhd           ; yes             ; User VHDL File  ; /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/pong-entity.vhd           ;         ;
+; ../vhdl/rendu/movement_full-rtl.vhd     ; yes             ; User VHDL File  ; /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/movement_full-rtl.vhd     ;         ;
+; ../vhdl/rendu/movement_full-entity.vhd  ; yes             ; User VHDL File  ; /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/movement_full-entity.vhd  ;         ;
+; ../vhdl/rendu/movement-rtl.vhd          ; yes             ; User VHDL File  ; /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/movement-rtl.vhd          ;         ;
+; ../vhdl/rendu/movement-entity.vhd       ; yes             ; User VHDL File  ; /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/movement-entity.vhd       ;         ;
+; ../vhdl/rendu/direction-rtl.vhd         ; yes             ; User VHDL File  ; /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/direction-rtl.vhd         ;         ;
+; ../vhdl/rendu/direction-entity.vhd      ; yes             ; User VHDL File  ; /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/direction-entity.vhd      ;         ;
+; ../vhdl/rendu/debouncer-rtl.vhd         ; yes             ; User VHDL File  ; /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/debouncer-rtl.vhd         ;         ;
+; ../vhdl/rendu/debouncer-entity.vhd      ; yes             ; User VHDL File  ; /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/debouncer-entity.vhd      ;         ;
+; ../vhdl/rendu/collision-rtl.vhd         ; yes             ; User VHDL File  ; /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/collision-rtl.vhd         ;         ;
+; ../vhdl/rendu/collision-entity.vhd      ; yes             ; User VHDL File  ; /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/collision-entity.vhd      ;         ;
+; ../vhdl/rendu/clock_divider-rtl.vhdl    ; yes             ; User VHDL File  ; /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/clock_divider-rtl.vhdl    ;         ;
+; ../vhdl/rendu/clock_divider-entity.vhdl ; yes             ; User VHDL File  ; /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/clock_divider-entity.vhdl ;         ;
+; ../vhdl/rendu/bat-rtl.vhd               ; yes             ; User VHDL File  ; /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/bat-rtl.vhd               ;         ;
+; ../vhdl/rendu/bat-entity.vhd            ; yes             ; User VHDL File  ; /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/bat-entity.vhd            ;         ;
++-----------------------------------------+-----------------+-----------------+--------------------------------------------------------------------------+---------+
 
 
 +-----------------------------------------------------------+
@@ -207,20 +202,20 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+-------------+
 ; Resource                                    ; Usage       ;
 +---------------------------------------------+-------------+
-; Estimated Total logic elements              ; 472         ;
+; Estimated Total logic elements              ; 414         ;
 ;                                             ;             ;
-; Total combinational functions               ; 468         ;
+; Total combinational functions               ; 410         ;
 ; Logic element usage by number of LUT inputs ;             ;
-;     -- 4 input functions                    ; 149         ;
-;     -- 3 input functions                    ; 117         ;
-;     -- <=2 input functions                  ; 202         ;
+;     -- 4 input functions                    ; 133         ;
+;     -- 3 input functions                    ; 105         ;
+;     -- <=2 input functions                  ; 172         ;
 ;                                             ;             ;
 ; Logic elements by mode                      ;             ;
-;     -- normal mode                          ; 431         ;
-;     -- arithmetic mode                      ; 37          ;
+;     -- normal mode                          ; 391         ;
+;     -- arithmetic mode                      ; 19          ;
 ;                                             ;             ;
-; Total registers                             ; 102         ;
-;     -- Dedicated logic registers            ; 102         ;
+; Total registers                             ; 76          ;
+;     -- Dedicated logic registers            ; 76          ;
 ;     -- I/O registers                        ; 0           ;
 ;                                             ;             ;
 ; I/O pins                                    ; 128         ;
@@ -228,9 +223,9 @@ refer to the applicable agreement for further details.
 ; Embedded Multiplier 9-bit elements          ; 0           ;
 ;                                             ;             ;
 ; Maximum fan-out node                        ; clock~input ;
-; Maximum fan-out                             ; 102         ;
-; Total fan-out                               ; 1867        ;
-; Average fan-out                             ; 2.26        ;
+; Maximum fan-out                             ; 76          ;
+; Total fan-out                               ; 1649        ;
+; Average fan-out                             ; 2.22        ;
 +---------------------------------------------+-------------+
 
 
@@ -239,21 +234,19 @@ refer to the applicable agreement for further details.
 +--------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------+---------------+--------------+
 ; Compilation Hierarchy Node     ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                          ; Entity Name   ; Library Name ;
 +--------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------+---------------+--------------+
-; |pong                          ; 468 (124)           ; 102 (0)                   ; 0           ; 0            ; 0       ; 0         ; 128  ; 0            ; |pong                                        ; pong          ; work         ;
+; |pong                          ; 410 (108)           ; 76 (0)                    ; 0           ; 0            ; 0       ; 0         ; 128  ; 0            ; |pong                                        ; pong          ; work         ;
 ;    |bat:bat1|                  ; 17 (17)             ; 9 (9)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pong|bat:bat1                               ; bat           ; work         ;
-;    |clockOver:clock_over|      ; 46 (46)             ; 19 (19)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pong|clockOver:clock_over                   ; clockOver     ; work         ;
 ;    |clock_divider:clock_div|   ; 46 (46)             ; 20 (20)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pong|clock_divider:clock_div                ; clock_divider ; work         ;
-;    |collision:collision1|      ; 33 (33)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pong|collision:collision1                   ; collision     ; work         ;
+;    |collision:collision1|      ; 37 (37)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pong|collision:collision1                   ; collision     ; work         ;
 ;    |debouncer:debouncer_down1| ; 2 (2)               ; 4 (4)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pong|debouncer:debouncer_down1              ; debouncer     ; work         ;
 ;    |debouncer:debouncer_up1|   ; 2 (2)               ; 4 (4)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pong|debouncer:debouncer_up1                ; debouncer     ; work         ;
-;    |movement_full:movement_x|  ; 39 (0)              ; 13 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pong|movement_full:movement_x               ; movement_full ; work         ;
-;       |direction:dir|          ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pong|movement_full:movement_x|direction:dir ; direction     ; work         ;
-;       |movement:mov|           ; 38 (38)             ; 12 (12)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pong|movement_full:movement_x|movement:mov  ; movement      ; work         ;
-;    |movement_full:movement_y|  ; 31 (0)              ; 10 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pong|movement_full:movement_y               ; movement_full ; work         ;
+;    |movement_full:movement_x|  ; 52 (0)              ; 13 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pong|movement_full:movement_x               ; movement_full ; work         ;
+;       |direction:dir|          ; 2 (2)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pong|movement_full:movement_x|direction:dir ; direction     ; work         ;
+;       |movement:mov|           ; 50 (50)             ; 12 (12)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pong|movement_full:movement_x|movement:mov  ; movement      ; work         ;
+;    |movement_full:movement_y|  ; 37 (0)              ; 10 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pong|movement_full:movement_y               ; movement_full ; work         ;
 ;       |direction:dir|          ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pong|movement_full:movement_y|direction:dir ; direction     ; work         ;
-;       |movement:mov|           ; 30 (30)             ; 9 (9)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pong|movement_full:movement_y|movement:mov  ; movement      ; work         ;
+;       |movement:mov|           ; 36 (36)             ; 9 (9)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pong|movement_full:movement_y|movement:mov  ; movement      ; work         ;
 ;    |score:score1|              ; 109 (109)           ; 16 (16)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pong|score:score1                           ; score         ; work         ;
-;    |scoreOver:score_over|      ; 19 (19)             ; 7 (7)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pong|scoreOver:score_over                   ; scoreOver     ; work         ;
 +--------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------+---------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -284,35 +277,25 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; movement_full:movement_y|movement:mov|s_next_state[6]  ; movement_full:movement_y|movement:mov|s_next_state[1] ; yes                    ;
 ; movement_full:movement_y|movement:mov|s_next_state[7]  ; movement_full:movement_y|movement:mov|s_next_state[1] ; yes                    ;
 ; movement_full:movement_y|movement:mov|s_next_state[8]  ; movement_full:movement_y|movement:mov|s_next_state[1] ; yes                    ;
-; score:score1|s_next_scoreU[0]                          ; score:score1|Equal1                                   ; yes                    ;
-; score:score1|s_next_scoreS[2]                          ; score:score1|Equal0                                   ; yes                    ;
-; score:score1|s_next_scoreS[1]                          ; score:score1|Equal0                                   ; yes                    ;
-; score:score1|s_next_scoreS[0]                          ; score:score1|Equal0                                   ; yes                    ;
-; score:score1|s_next_scoreS[3]                          ; score:score1|Equal0                                   ; yes                    ;
-; score:score1|s_next_scoreS[4]                          ; score:score1|Equal0                                   ; yes                    ;
-; score:score1|s_next_scoreS[5]                          ; score:score1|Equal0                                   ; yes                    ;
-; score:score1|s_next_scoreS[6]                          ; score:score1|Equal0                                   ; yes                    ;
-; score:score1|s_next_scoreS[7]                          ; score:score1|Equal0                                   ; yes                    ;
-; score:score1|s_next_scoreU[1]                          ; score:score1|Equal1                                   ; yes                    ;
-; score:score1|s_next_scoreU[2]                          ; score:score1|Equal1                                   ; yes                    ;
-; score:score1|s_next_scoreU[3]                          ; score:score1|Equal1                                   ; yes                    ;
-; score:score1|s_next_scoreU[4]                          ; score:score1|Equal1                                   ; yes                    ;
-; score:score1|s_next_scoreU[5]                          ; score:score1|Equal1                                   ; yes                    ;
-; score:score1|s_next_scoreU[6]                          ; score:score1|Equal1                                   ; yes                    ;
-; score:score1|s_next_scoreU[7]                          ; score:score1|Equal1                                   ; yes                    ;
+; score:score1|s_next_scoreU[0]                          ; score:score1|s_next_scoreU[0]                         ; yes                    ;
+; score:score1|s_next_scoreU[1]                          ; score:score1|s_next_scoreU[0]                         ; yes                    ;
+; score:score1|s_next_scoreU[2]                          ; score:score1|s_next_scoreU[0]                         ; yes                    ;
+; score:score1|s_next_scoreU[3]                          ; score:score1|s_next_scoreU[0]                         ; yes                    ;
+; score:score1|s_next_scoreU[4]                          ; score:score1|s_next_scoreU[0]                         ; yes                    ;
+; score:score1|s_next_scoreU[5]                          ; score:score1|s_next_scoreU[0]                         ; yes                    ;
+; score:score1|s_next_scoreU[6]                          ; score:score1|s_next_scoreU[0]                         ; yes                    ;
+; score:score1|s_next_scoreU[7]                          ; score:score1|s_next_scoreU[0]                         ; yes                    ;
+; score:score1|s_next_scoreS[0]                          ; score:score1|s_next_scoreS[1]                         ; yes                    ;
+; score:score1|s_next_scoreS[1]                          ; score:score1|s_next_scoreS[1]                         ; yes                    ;
+; score:score1|s_next_scoreS[2]                          ; score:score1|s_next_scoreS[1]                         ; yes                    ;
+; score:score1|s_next_scoreS[3]                          ; score:score1|s_next_scoreS[1]                         ; yes                    ;
+; score:score1|s_next_scoreS[4]                          ; score:score1|s_next_scoreS[1]                         ; yes                    ;
+; score:score1|s_next_scoreS[5]                          ; score:score1|s_next_scoreS[1]                         ; yes                    ;
+; score:score1|s_next_scoreS[6]                          ; score:score1|s_next_scoreS[1]                         ; yes                    ;
+; score:score1|s_next_scoreS[7]                          ; score:score1|s_next_scoreS[1]                         ; yes                    ;
 ; Number of user-specified and inferred latches = 37     ;                                                       ;                        ;
 +--------------------------------------------------------+-------------------------------------------------------+------------------------+
 Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
-
-
-+--------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                             ;
-+---------------------------------------+----------------------------------------+
-; Register name                         ; Reason for Removal                     ;
-+---------------------------------------+----------------------------------------+
-; scoreOver:score_over|s_scoreS[0]      ; Stuck at GND due to stuck port data_in ;
-; Total Number of Removed Registers = 1 ;                                        ;
-+---------------------------------------+----------------------------------------+
 
 
 +------------------------------------------------------+
@@ -320,12 +303,12 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 102   ;
+; Total registers                              ; 76    ;
 ; Number of registers using Synchronous Clear  ; 4     ;
 ; Number of registers using Synchronous Load   ; 5     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 55    ;
+; Number of registers using Clock Enable       ; 48    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -348,31 +331,23 @@ Note: All latches listed above may not be present at the end of synthesis due to
 ; clock_divider:clock_div|s_current_state[10] ; 2       ;
 ; clock_divider:clock_div|s_current_state[12] ; 2       ;
 ; clock_divider:clock_div|s_current_state[13] ; 2       ;
-; clockOver:clock_over|s_current_state[18]    ; 3       ;
-; clockOver:clock_over|s_current_state[5]     ; 2       ;
-; clockOver:clock_over|s_current_state[6]     ; 2       ;
-; clockOver:clock_over|s_current_state[7]     ; 2       ;
-; clockOver:clock_over|s_current_state[8]     ; 2       ;
-; clockOver:clock_over|s_current_state[9]     ; 2       ;
-; clockOver:clock_over|s_current_state[12]    ; 2       ;
-; clockOver:clock_over|s_current_state[15]    ; 2       ;
-; Total number of inverted registers = 21     ;         ;
+; Total number of inverted registers = 13     ;         ;
 +---------------------------------------------+---------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                               ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                     ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------+
-; 3:1                ; 39 bits   ; 78 LEs        ; 39 LEs               ; 39 LEs                 ; Yes        ; |pong|movement_full:movement_y|movement:mov|s_current_state[5] ;
-; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |pong|clock_divider:clock_div|s_current_state[15]              ;
-; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |pong|clockOver:clock_over|s_current_state[4]                  ;
-; 5:1                ; 7 bits    ; 21 LEs        ; 14 LEs               ; 7 LEs                  ; Yes        ; |pong|bat:bat1|s_current_state[7]                              ;
-; 3:1                ; 13 bits   ; 26 LEs        ; 26 LEs               ; 0 LEs                  ; Yes        ; |pong|clock_divider:clock_div|s_current_state[18]              ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |pong|clockOver:clock_over|s_current_state[6]                  ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; No         ; |pong|collision:collision1|s_next_y[1]                         ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                             ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------+
+; 3:1                ; 39 bits   ; 78 LEs        ; 39 LEs               ; 39 LEs                 ; Yes        ; |pong|score:score1|s_scoreU[7]                               ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |pong|clock_divider:clock_div|s_current_state[14]            ;
+; 5:1                ; 7 bits    ; 21 LEs        ; 14 LEs               ; 7 LEs                  ; Yes        ; |pong|bat:bat1|s_current_state[5]                            ;
+; 3:1                ; 13 bits   ; 26 LEs        ; 26 LEs               ; 0 LEs                  ; Yes        ; |pong|clock_divider:clock_div|s_current_state[0]             ;
+; 4:1                ; 9 bits    ; 18 LEs        ; 18 LEs               ; 0 LEs                  ; No         ; |pong|movement_full:movement_x|movement:mov|s_next_state[10] ;
+; 4:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |pong|movement_full:movement_y|movement:mov|s_next_state[7]  ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; No         ; |pong|collision:collision1|s_next_y[7]                       ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------+
 
 
 +-----------------------------------------------------------------------+
@@ -419,17 +394,13 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "scoreOver:score_over"                                                                       ;
-+--------------+--------+----------+-------------------------------------------------------------------------------------+
-; Port         ; Type   ; Severity ; Details                                                                             ;
-+--------------+--------+----------+-------------------------------------------------------------------------------------+
-; x_pos[10..0] ; Input  ; Info     ; Stuck at GND                                                                        ;
-; x_pos[11]    ; Input  ; Info     ; Stuck at VCC                                                                        ;
-; reset        ; Input  ; Info     ; Stuck at GND                                                                        ;
-; user         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; over         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+--------------+--------+----------+-------------------------------------------------------------------------------------+
++----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "score:score1"                                                                       ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; over ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+-------------------------------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -447,22 +418,22 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 128                         ;
-; cycloneiii_ff         ; 102                         ;
-;     ENA               ; 46                          ;
+; cycloneiii_ff         ; 76                          ;
+;     ENA               ; 39                          ;
 ;     ENA SCLR          ; 4                           ;
 ;     ENA SLD           ; 5                           ;
-;     plain             ; 47                          ;
-; cycloneiii_lcell_comb ; 468                         ;
-;     arith             ; 37                          ;
-;         2 data inputs ; 37                          ;
-;     normal            ; 431                         ;
-;         1 data inputs ; 4                           ;
-;         2 data inputs ; 161                         ;
-;         3 data inputs ; 117                         ;
-;         4 data inputs ; 149                         ;
+;     plain             ; 28                          ;
+; cycloneiii_lcell_comb ; 410                         ;
+;     arith             ; 19                          ;
+;         2 data inputs ; 19                          ;
+;     normal            ; 391                         ;
+;         1 data inputs ; 3                           ;
+;         2 data inputs ; 150                         ;
+;         3 data inputs ; 105                         ;
+;         4 data inputs ; 133                         ;
 ;                       ;                             ;
-; Max LUT depth         ; 7.00                        ;
-; Average LUT depth     ; 3.11                        ;
+; Max LUT depth         ; 11.00                       ;
+; Average LUT depth     ; 4.08                        ;
 +-----------------------+-----------------------------+
 
 
@@ -471,7 +442,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:01     ;
+; Top            ; 00:00:00     ;
 +----------------+--------------+
 
 
@@ -481,225 +452,188 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
-    Info: Processing started: Thu May  9 00:49:13 2019
+    Info: Processing started: Fri May 10 11:24:10 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off pong -c pong
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 5 of the 5 processors detected
-Info (12021): Found 1 design units, including 0 entities, in source file /media/sf_student/TPCSN/TP7TP8/pong/vhdl/score-rtl.vhd
-    Info (12022): Found design unit 1: score-rtl File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/score-rtl.vhd Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file /media/sf_student/TPCSN/TP7TP8/pong/vhdl/score-entity.vhd
-    Info (12023): Found entity 1: score File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/score-entity.vhd Line: 5
-Info (12021): Found 1 design units, including 0 entities, in source file /media/sf_student/TPCSN/TP7TP8/pong/vhdl/pong-rtl.vhd
-    Info (12022): Found design unit 1: pong-rtl File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/pong-rtl.vhd Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file /media/sf_student/TPCSN/TP7TP8/pong/vhdl/pong-entity.vhd
-    Info (12023): Found entity 1: pong File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/pong-entity.vhd Line: 4
-Info (12021): Found 1 design units, including 0 entities, in source file /media/sf_student/TPCSN/TP7TP8/pong/vhdl/movement_full-rtl.vhd
-    Info (12022): Found design unit 1: movement_full-rtl File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/movement_full-rtl.vhd Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file /media/sf_student/TPCSN/TP7TP8/pong/vhdl/movement_full-entity.vhd
-    Info (12023): Found entity 1: movement_full File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/movement_full-entity.vhd Line: 4
-Info (12021): Found 1 design units, including 0 entities, in source file /media/sf_student/TPCSN/TP7TP8/pong/vhdl/movement-rtl.vhd
-    Info (12022): Found design unit 1: movement-rtl File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/movement-rtl.vhd Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file /media/sf_student/TPCSN/TP7TP8/pong/vhdl/movement-entity.vhd
-    Info (12023): Found entity 1: movement File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/movement-entity.vhd Line: 4
-Info (12021): Found 1 design units, including 0 entities, in source file /media/sf_student/TPCSN/TP7TP8/pong/vhdl/direction-rtl.vhd
-    Info (12022): Found design unit 1: direction-rtl File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/direction-rtl.vhd Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file /media/sf_student/TPCSN/TP7TP8/pong/vhdl/direction-entity.vhd
-    Info (12023): Found entity 1: direction File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/direction-entity.vhd Line: 4
-Info (12021): Found 1 design units, including 0 entities, in source file /media/sf_student/TPCSN/TP7TP8/pong/vhdl/debouncer-rtl.vhd
-    Info (12022): Found design unit 1: debouncer-rtl File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/debouncer-rtl.vhd Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file /media/sf_student/TPCSN/TP7TP8/pong/vhdl/debouncer-entity.vhd
-    Info (12023): Found entity 1: debouncer File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/debouncer-entity.vhd Line: 4
-Info (12021): Found 1 design units, including 0 entities, in source file /media/sf_student/TPCSN/TP7TP8/pong/vhdl/collision-rtl.vhd
-    Info (12022): Found design unit 1: collision-rtl File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/collision-rtl.vhd Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file /media/sf_student/TPCSN/TP7TP8/pong/vhdl/collision-entity.vhd
-    Info (12023): Found entity 1: collision File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/collision-entity.vhd Line: 4
-Info (12021): Found 1 design units, including 0 entities, in source file /media/sf_student/TPCSN/TP7TP8/pong/vhdl/clock_divider-rtl.vhdl
-    Info (12022): Found design unit 1: clock_divider-no_target_specific File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/clock_divider-rtl.vhdl Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file /media/sf_student/TPCSN/TP7TP8/pong/vhdl/clock_divider-entity.vhdl
-    Info (12023): Found entity 1: clock_divider File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/clock_divider-entity.vhdl Line: 5
-Info (12021): Found 1 design units, including 0 entities, in source file /media/sf_student/TPCSN/TP7TP8/pong/vhdl/bat-rtl.vhd
-    Info (12022): Found design unit 1: bat-rtl File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/bat-rtl.vhd Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file /media/sf_student/TPCSN/TP7TP8/pong/vhdl/bat-entity.vhd
-    Info (12023): Found entity 1: bat File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/bat-entity.vhd Line: 5
-Info (12021): Found 1 design units, including 1 entities, in source file /media/sf_student/TPCSN/TP7TP8/pong/vhdl/clockOver-entity.vhd
-    Info (12023): Found entity 1: clockOver File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/clockOver-entity.vhd Line: 5
-Warning (12019): Can't analyze file -- file ../vhdl/clockOver-behavior.vhd is missing
-Info (12021): Found 1 design units, including 0 entities, in source file /media/sf_student/TPCSN/TP7TP8/pong/vhdl/clockOver-rtl.vhd
-    Info (12022): Found design unit 1: clockOver-no_target_specific File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/clockOver-rtl.vhd Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file /media/sf_student/TPCSN/TP7TP8/pong/vhdl/scoreOver-entity.vhd
-    Info (12023): Found entity 1: scoreOver File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/scoreOver-entity.vhd Line: 5
-Info (12021): Found 1 design units, including 0 entities, in source file /media/sf_student/TPCSN/TP7TP8/pong/vhdl/scoreOver-rtl.vhd
-    Info (12022): Found design unit 1: scoreOver-rtl File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/scoreOver-rtl.vhd Line: 1
+Info (12021): Found 1 design units, including 0 entities, in source file /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/score-rtl.vhd
+    Info (12022): Found design unit 1: score-rtl File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/score-rtl.vhd Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/score-entity.vhd
+    Info (12023): Found entity 1: score File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/score-entity.vhd Line: 5
+Info (12021): Found 1 design units, including 0 entities, in source file /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/pong-rtl.vhd
+    Info (12022): Found design unit 1: pong-rtl File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/pong-rtl.vhd Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/pong-entity.vhd
+    Info (12023): Found entity 1: pong File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/pong-entity.vhd Line: 4
+Info (12021): Found 1 design units, including 0 entities, in source file /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/movement_full-rtl.vhd
+    Info (12022): Found design unit 1: movement_full-rtl File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/movement_full-rtl.vhd Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/movement_full-entity.vhd
+    Info (12023): Found entity 1: movement_full File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/movement_full-entity.vhd Line: 4
+Info (12021): Found 1 design units, including 0 entities, in source file /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/movement-rtl.vhd
+    Info (12022): Found design unit 1: movement-rtl File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/movement-rtl.vhd Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/movement-entity.vhd
+    Info (12023): Found entity 1: movement File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/movement-entity.vhd Line: 4
+Info (12021): Found 1 design units, including 0 entities, in source file /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/direction-rtl.vhd
+    Info (12022): Found design unit 1: direction-rtl File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/direction-rtl.vhd Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/direction-entity.vhd
+    Info (12023): Found entity 1: direction File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/direction-entity.vhd Line: 4
+Info (12021): Found 1 design units, including 0 entities, in source file /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/debouncer-rtl.vhd
+    Info (12022): Found design unit 1: debouncer-rtl File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/debouncer-rtl.vhd Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/debouncer-entity.vhd
+    Info (12023): Found entity 1: debouncer File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/debouncer-entity.vhd Line: 4
+Info (12021): Found 1 design units, including 0 entities, in source file /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/collision-rtl.vhd
+    Info (12022): Found design unit 1: collision-rtl File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/collision-rtl.vhd Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/collision-entity.vhd
+    Info (12023): Found entity 1: collision File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/collision-entity.vhd Line: 4
+Info (12021): Found 1 design units, including 0 entities, in source file /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/clock_divider-rtl.vhdl
+    Info (12022): Found design unit 1: clock_divider-no_target_specific File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/clock_divider-rtl.vhdl Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/clock_divider-entity.vhdl
+    Info (12023): Found entity 1: clock_divider File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/clock_divider-entity.vhdl Line: 5
+Info (12021): Found 1 design units, including 0 entities, in source file /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/bat-rtl.vhd
+    Info (12022): Found design unit 1: bat-rtl File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/bat-rtl.vhd Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/bat-entity.vhd
+    Info (12023): Found entity 1: bat File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/bat-entity.vhd Line: 5
 Info (12127): Elaborating entity "pong" for the top level hierarchy
-Warning (10036): Verilog HDL or VHDL warning at pong-rtl.vhd(85): object "s_user_over" assigned a value but never read File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/pong-rtl.vhd Line: 85
-Info (12128): Elaborating entity "clock_divider" for hierarchy "clock_divider:clock_div" File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/pong-rtl.vhd Line: 104
-Info (12128): Elaborating entity "movement_full" for hierarchy "movement_full:movement_y" File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/pong-rtl.vhd Line: 110
-Info (12128): Elaborating entity "direction" for hierarchy "movement_full:movement_y|direction:dir" File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/movement_full-rtl.vhd Line: 30
-Info (12128): Elaborating entity "movement" for hierarchy "movement_full:movement_y|movement:mov" File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/movement_full-rtl.vhd Line: 38
-Warning (10631): VHDL Process Statement warning at movement-rtl.vhd(14): inferring latch(es) for signal or variable "s_next_state", which holds its previous value in one or more paths through the process File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/movement-rtl.vhd Line: 14
-Info (10041): Inferred latch for "s_next_state[0]" at movement-rtl.vhd(14) File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/movement-rtl.vhd Line: 14
-Info (10041): Inferred latch for "s_next_state[1]" at movement-rtl.vhd(14) File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/movement-rtl.vhd Line: 14
-Info (10041): Inferred latch for "s_next_state[2]" at movement-rtl.vhd(14) File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/movement-rtl.vhd Line: 14
-Info (10041): Inferred latch for "s_next_state[3]" at movement-rtl.vhd(14) File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/movement-rtl.vhd Line: 14
-Info (10041): Inferred latch for "s_next_state[4]" at movement-rtl.vhd(14) File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/movement-rtl.vhd Line: 14
-Info (10041): Inferred latch for "s_next_state[5]" at movement-rtl.vhd(14) File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/movement-rtl.vhd Line: 14
-Info (10041): Inferred latch for "s_next_state[6]" at movement-rtl.vhd(14) File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/movement-rtl.vhd Line: 14
-Info (10041): Inferred latch for "s_next_state[7]" at movement-rtl.vhd(14) File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/movement-rtl.vhd Line: 14
-Info (10041): Inferred latch for "s_next_state[8]" at movement-rtl.vhd(14) File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/movement-rtl.vhd Line: 14
-Info (12128): Elaborating entity "movement_full" for hierarchy "movement_full:movement_x" File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/pong-rtl.vhd Line: 121
-Info (12128): Elaborating entity "movement" for hierarchy "movement_full:movement_x|movement:mov" File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/movement_full-rtl.vhd Line: 38
-Warning (10631): VHDL Process Statement warning at movement-rtl.vhd(14): inferring latch(es) for signal or variable "s_next_state", which holds its previous value in one or more paths through the process File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/movement-rtl.vhd Line: 14
-Info (10041): Inferred latch for "s_next_state[0]" at movement-rtl.vhd(14) File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/movement-rtl.vhd Line: 14
-Info (10041): Inferred latch for "s_next_state[1]" at movement-rtl.vhd(14) File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/movement-rtl.vhd Line: 14
-Info (10041): Inferred latch for "s_next_state[2]" at movement-rtl.vhd(14) File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/movement-rtl.vhd Line: 14
-Info (10041): Inferred latch for "s_next_state[3]" at movement-rtl.vhd(14) File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/movement-rtl.vhd Line: 14
-Info (10041): Inferred latch for "s_next_state[4]" at movement-rtl.vhd(14) File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/movement-rtl.vhd Line: 14
-Info (10041): Inferred latch for "s_next_state[5]" at movement-rtl.vhd(14) File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/movement-rtl.vhd Line: 14
-Info (10041): Inferred latch for "s_next_state[6]" at movement-rtl.vhd(14) File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/movement-rtl.vhd Line: 14
-Info (10041): Inferred latch for "s_next_state[7]" at movement-rtl.vhd(14) File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/movement-rtl.vhd Line: 14
-Info (10041): Inferred latch for "s_next_state[8]" at movement-rtl.vhd(14) File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/movement-rtl.vhd Line: 14
-Info (10041): Inferred latch for "s_next_state[9]" at movement-rtl.vhd(14) File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/movement-rtl.vhd Line: 14
-Info (10041): Inferred latch for "s_next_state[10]" at movement-rtl.vhd(14) File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/movement-rtl.vhd Line: 14
-Info (10041): Inferred latch for "s_next_state[11]" at movement-rtl.vhd(14) File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/movement-rtl.vhd Line: 14
-Info (12128): Elaborating entity "bat" for hierarchy "bat:bat1" File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/pong-rtl.vhd Line: 130
-Info (12128): Elaborating entity "score" for hierarchy "score:score1" File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/pong-rtl.vhd Line: 133
-Warning (10492): VHDL Process Statement warning at score-rtl.vhd(24): signal "s_scoreU" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/score-rtl.vhd Line: 24
-Warning (10492): VHDL Process Statement warning at score-rtl.vhd(53): signal "s_scoreU" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/score-rtl.vhd Line: 53
-Warning (10631): VHDL Process Statement warning at score-rtl.vhd(20): inferring latch(es) for signal or variable "s_next_scoreU", which holds its previous value in one or more paths through the process File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/score-rtl.vhd Line: 20
-Warning (10631): VHDL Process Statement warning at score-rtl.vhd(20): inferring latch(es) for signal or variable "s_next_scoreS", which holds its previous value in one or more paths through the process File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/score-rtl.vhd Line: 20
-Info (10041): Inferred latch for "s_next_scoreS[0]" at score-rtl.vhd(20) File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/score-rtl.vhd Line: 20
-Info (10041): Inferred latch for "s_next_scoreS[1]" at score-rtl.vhd(20) File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/score-rtl.vhd Line: 20
-Info (10041): Inferred latch for "s_next_scoreS[2]" at score-rtl.vhd(20) File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/score-rtl.vhd Line: 20
-Info (10041): Inferred latch for "s_next_scoreS[3]" at score-rtl.vhd(20) File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/score-rtl.vhd Line: 20
-Info (10041): Inferred latch for "s_next_scoreS[4]" at score-rtl.vhd(20) File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/score-rtl.vhd Line: 20
-Info (10041): Inferred latch for "s_next_scoreS[5]" at score-rtl.vhd(20) File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/score-rtl.vhd Line: 20
-Info (10041): Inferred latch for "s_next_scoreS[6]" at score-rtl.vhd(20) File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/score-rtl.vhd Line: 20
-Info (10041): Inferred latch for "s_next_scoreS[7]" at score-rtl.vhd(20) File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/score-rtl.vhd Line: 20
-Info (10041): Inferred latch for "s_next_scoreU[0]" at score-rtl.vhd(20) File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/score-rtl.vhd Line: 20
-Info (10041): Inferred latch for "s_next_scoreU[1]" at score-rtl.vhd(20) File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/score-rtl.vhd Line: 20
-Info (10041): Inferred latch for "s_next_scoreU[2]" at score-rtl.vhd(20) File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/score-rtl.vhd Line: 20
-Info (10041): Inferred latch for "s_next_scoreU[3]" at score-rtl.vhd(20) File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/score-rtl.vhd Line: 20
-Info (10041): Inferred latch for "s_next_scoreU[4]" at score-rtl.vhd(20) File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/score-rtl.vhd Line: 20
-Info (10041): Inferred latch for "s_next_scoreU[5]" at score-rtl.vhd(20) File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/score-rtl.vhd Line: 20
-Info (10041): Inferred latch for "s_next_scoreU[6]" at score-rtl.vhd(20) File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/score-rtl.vhd Line: 20
-Info (10041): Inferred latch for "s_next_scoreU[7]" at score-rtl.vhd(20) File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/score-rtl.vhd Line: 20
-Info (12128): Elaborating entity "debouncer" for hierarchy "debouncer:debouncer_up1" File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/pong-rtl.vhd Line: 136
-Info (12128): Elaborating entity "collision" for hierarchy "collision:collision1" File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/pong-rtl.vhd Line: 142
-Info (12128): Elaborating entity "clockOver" for hierarchy "clockOver:clock_over" File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/pong-rtl.vhd Line: 145
-Info (12128): Elaborating entity "scoreOver" for hierarchy "scoreOver:score_over" File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/pong-rtl.vhd Line: 148
-Warning (10492): VHDL Process Statement warning at scoreOver-rtl.vhd(24): signal "s_scoreU" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/scoreOver-rtl.vhd Line: 24
-Warning (10492): VHDL Process Statement warning at scoreOver-rtl.vhd(53): signal "s_scoreU" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/scoreOver-rtl.vhd Line: 53
-Warning (10631): VHDL Process Statement warning at scoreOver-rtl.vhd(20): inferring latch(es) for signal or variable "s_next_scoreU", which holds its previous value in one or more paths through the process File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/scoreOver-rtl.vhd Line: 20
-Warning (10631): VHDL Process Statement warning at scoreOver-rtl.vhd(20): inferring latch(es) for signal or variable "s_next_scoreS", which holds its previous value in one or more paths through the process File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/scoreOver-rtl.vhd Line: 20
-Info (10041): Inferred latch for "s_next_scoreS[0]" at scoreOver-rtl.vhd(20) File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/scoreOver-rtl.vhd Line: 20
-Info (10041): Inferred latch for "s_next_scoreS[1]" at scoreOver-rtl.vhd(20) File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/scoreOver-rtl.vhd Line: 20
-Info (10041): Inferred latch for "s_next_scoreS[2]" at scoreOver-rtl.vhd(20) File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/scoreOver-rtl.vhd Line: 20
-Info (10041): Inferred latch for "s_next_scoreS[3]" at scoreOver-rtl.vhd(20) File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/scoreOver-rtl.vhd Line: 20
-Info (10041): Inferred latch for "s_next_scoreS[4]" at scoreOver-rtl.vhd(20) File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/scoreOver-rtl.vhd Line: 20
-Info (10041): Inferred latch for "s_next_scoreS[5]" at scoreOver-rtl.vhd(20) File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/scoreOver-rtl.vhd Line: 20
-Info (10041): Inferred latch for "s_next_scoreS[6]" at scoreOver-rtl.vhd(20) File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/scoreOver-rtl.vhd Line: 20
-Info (10041): Inferred latch for "s_next_scoreS[7]" at scoreOver-rtl.vhd(20) File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/scoreOver-rtl.vhd Line: 20
-Info (10041): Inferred latch for "s_next_scoreU[0]" at scoreOver-rtl.vhd(20) File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/scoreOver-rtl.vhd Line: 20
-Info (10041): Inferred latch for "s_next_scoreU[1]" at scoreOver-rtl.vhd(20) File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/scoreOver-rtl.vhd Line: 20
-Info (10041): Inferred latch for "s_next_scoreU[2]" at scoreOver-rtl.vhd(20) File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/scoreOver-rtl.vhd Line: 20
-Info (10041): Inferred latch for "s_next_scoreU[3]" at scoreOver-rtl.vhd(20) File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/scoreOver-rtl.vhd Line: 20
-Info (10041): Inferred latch for "s_next_scoreU[4]" at scoreOver-rtl.vhd(20) File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/scoreOver-rtl.vhd Line: 20
-Info (10041): Inferred latch for "s_next_scoreU[5]" at scoreOver-rtl.vhd(20) File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/scoreOver-rtl.vhd Line: 20
-Info (10041): Inferred latch for "s_next_scoreU[6]" at scoreOver-rtl.vhd(20) File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/scoreOver-rtl.vhd Line: 20
-Info (10041): Inferred latch for "s_next_scoreU[7]" at scoreOver-rtl.vhd(20) File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/scoreOver-rtl.vhd Line: 20
-Warning (14026): LATCH primitive "scoreOver:score_over|s_next_scoreS[1]" is permanently enabled File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/scoreOver-rtl.vhd Line: 20
-Warning (14026): LATCH primitive "scoreOver:score_over|s_next_scoreS[2]" is permanently enabled File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/scoreOver-rtl.vhd Line: 20
-Warning (14026): LATCH primitive "scoreOver:score_over|s_next_scoreS[3]" is permanently enabled File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/scoreOver-rtl.vhd Line: 20
-Warning (14026): LATCH primitive "scoreOver:score_over|s_next_scoreS[4]" is permanently enabled File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/scoreOver-rtl.vhd Line: 20
-Warning (14026): LATCH primitive "scoreOver:score_over|s_next_scoreS[5]" is permanently enabled File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/scoreOver-rtl.vhd Line: 20
-Warning (14026): LATCH primitive "scoreOver:score_over|s_next_scoreS[6]" is permanently enabled File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/scoreOver-rtl.vhd Line: 20
-Warning (14026): LATCH primitive "scoreOver:score_over|s_next_scoreS[7]" is permanently enabled File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/scoreOver-rtl.vhd Line: 20
-Warning (14026): LATCH primitive "scoreOver:score_over|s_next_scoreS[0]" is permanently enabled File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/scoreOver-rtl.vhd Line: 20
-Warning (13012): Latch movement_full:movement_y|movement:mov|s_next_state[0] has unsafe behavior File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/movement-rtl.vhd Line: 14
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal movement_full:movement_y|movement:mov|s_current_state[0] File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/movement-rtl.vhd Line: 33
-Warning (13012): Latch movement_full:movement_x|movement:mov|s_next_state[0] has unsafe behavior File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/movement-rtl.vhd Line: 14
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal movement_full:movement_x|movement:mov|s_current_state[0] File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/movement-rtl.vhd Line: 33
-Warning (13012): Latch movement_full:movement_x|movement:mov|s_next_state[1] has unsafe behavior File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/movement-rtl.vhd Line: 14
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal movement_full:movement_x|movement:mov|s_current_state[0] File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/movement-rtl.vhd Line: 33
-Warning (13012): Latch movement_full:movement_x|movement:mov|s_next_state[2] has unsafe behavior File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/movement-rtl.vhd Line: 14
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal movement_full:movement_x|movement:mov|s_current_state[0] File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/movement-rtl.vhd Line: 33
-Warning (13012): Latch movement_full:movement_x|movement:mov|s_next_state[3] has unsafe behavior File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/movement-rtl.vhd Line: 14
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal movement_full:movement_x|movement:mov|s_current_state[0] File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/movement-rtl.vhd Line: 33
-Warning (13012): Latch movement_full:movement_x|movement:mov|s_next_state[4] has unsafe behavior File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/movement-rtl.vhd Line: 14
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal movement_full:movement_x|movement:mov|s_current_state[0] File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/movement-rtl.vhd Line: 33
-Warning (13012): Latch movement_full:movement_x|movement:mov|s_next_state[5] has unsafe behavior File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/movement-rtl.vhd Line: 14
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal movement_full:movement_x|movement:mov|s_current_state[0] File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/movement-rtl.vhd Line: 33
-Warning (13012): Latch movement_full:movement_x|movement:mov|s_next_state[6] has unsafe behavior File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/movement-rtl.vhd Line: 14
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal movement_full:movement_x|movement:mov|s_current_state[0] File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/movement-rtl.vhd Line: 33
-Warning (13012): Latch movement_full:movement_x|movement:mov|s_next_state[7] has unsafe behavior File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/movement-rtl.vhd Line: 14
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal movement_full:movement_x|movement:mov|s_current_state[0] File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/movement-rtl.vhd Line: 33
-Warning (13012): Latch movement_full:movement_x|movement:mov|s_next_state[8] has unsafe behavior File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/movement-rtl.vhd Line: 14
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal movement_full:movement_x|movement:mov|s_current_state[0] File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/movement-rtl.vhd Line: 33
-Warning (13012): Latch movement_full:movement_x|movement:mov|s_next_state[9] has unsafe behavior File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/movement-rtl.vhd Line: 14
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal movement_full:movement_x|movement:mov|s_current_state[0] File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/movement-rtl.vhd Line: 33
-Warning (13012): Latch movement_full:movement_x|movement:mov|s_next_state[10] has unsafe behavior File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/movement-rtl.vhd Line: 14
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal movement_full:movement_x|movement:mov|s_current_state[0] File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/movement-rtl.vhd Line: 33
-Warning (13012): Latch movement_full:movement_x|movement:mov|s_next_state[11] has unsafe behavior File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/movement-rtl.vhd Line: 14
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal movement_full:movement_x|movement:mov|s_current_state[0] File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/movement-rtl.vhd Line: 33
-Warning (13012): Latch movement_full:movement_y|movement:mov|s_next_state[1] has unsafe behavior File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/movement-rtl.vhd Line: 14
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal movement_full:movement_y|movement:mov|s_current_state[0] File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/movement-rtl.vhd Line: 33
-Warning (13012): Latch movement_full:movement_y|movement:mov|s_next_state[2] has unsafe behavior File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/movement-rtl.vhd Line: 14
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal movement_full:movement_y|movement:mov|s_current_state[0] File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/movement-rtl.vhd Line: 33
-Warning (13012): Latch movement_full:movement_y|movement:mov|s_next_state[3] has unsafe behavior File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/movement-rtl.vhd Line: 14
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal movement_full:movement_y|movement:mov|s_current_state[0] File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/movement-rtl.vhd Line: 33
-Warning (13012): Latch movement_full:movement_y|movement:mov|s_next_state[4] has unsafe behavior File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/movement-rtl.vhd Line: 14
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal movement_full:movement_y|movement:mov|s_current_state[0] File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/movement-rtl.vhd Line: 33
-Warning (13012): Latch movement_full:movement_y|movement:mov|s_next_state[5] has unsafe behavior File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/movement-rtl.vhd Line: 14
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal movement_full:movement_y|movement:mov|s_current_state[0] File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/movement-rtl.vhd Line: 33
-Warning (13012): Latch movement_full:movement_y|movement:mov|s_next_state[6] has unsafe behavior File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/movement-rtl.vhd Line: 14
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal movement_full:movement_y|movement:mov|s_current_state[0] File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/movement-rtl.vhd Line: 33
-Warning (13012): Latch movement_full:movement_y|movement:mov|s_next_state[7] has unsafe behavior File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/movement-rtl.vhd Line: 14
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal movement_full:movement_y|movement:mov|s_current_state[0] File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/movement-rtl.vhd Line: 33
-Warning (13012): Latch movement_full:movement_y|movement:mov|s_next_state[8] has unsafe behavior File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/movement-rtl.vhd Line: 14
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal movement_full:movement_y|movement:mov|s_current_state[0] File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/movement-rtl.vhd Line: 33
-Warning (13012): Latch score:score1|s_next_scoreU[0] has unsafe behavior File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/score-rtl.vhd Line: 20
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal movement_full:movement_x|movement:mov|s_current_state[0] File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/movement-rtl.vhd Line: 33
-Warning (13012): Latch score:score1|s_next_scoreS[2] has unsafe behavior File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/score-rtl.vhd Line: 20
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal movement_full:movement_x|movement:mov|s_current_state[0] File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/movement-rtl.vhd Line: 33
-Warning (13012): Latch score:score1|s_next_scoreS[1] has unsafe behavior File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/score-rtl.vhd Line: 20
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal movement_full:movement_x|movement:mov|s_current_state[0] File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/movement-rtl.vhd Line: 33
-Warning (13012): Latch score:score1|s_next_scoreS[0] has unsafe behavior File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/score-rtl.vhd Line: 20
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal movement_full:movement_x|movement:mov|s_current_state[0] File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/movement-rtl.vhd Line: 33
-Warning (13012): Latch score:score1|s_next_scoreS[3] has unsafe behavior File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/score-rtl.vhd Line: 20
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal movement_full:movement_x|movement:mov|s_current_state[0] File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/movement-rtl.vhd Line: 33
-Warning (13012): Latch score:score1|s_next_scoreS[4] has unsafe behavior File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/score-rtl.vhd Line: 20
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal movement_full:movement_x|movement:mov|s_current_state[0] File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/movement-rtl.vhd Line: 33
-Warning (13012): Latch score:score1|s_next_scoreS[5] has unsafe behavior File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/score-rtl.vhd Line: 20
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal movement_full:movement_x|movement:mov|s_current_state[0] File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/movement-rtl.vhd Line: 33
-Warning (13012): Latch score:score1|s_next_scoreS[6] has unsafe behavior File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/score-rtl.vhd Line: 20
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal movement_full:movement_x|movement:mov|s_current_state[0] File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/movement-rtl.vhd Line: 33
-Warning (13012): Latch score:score1|s_next_scoreS[7] has unsafe behavior File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/score-rtl.vhd Line: 20
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal movement_full:movement_x|movement:mov|s_current_state[0] File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/movement-rtl.vhd Line: 33
-Warning (13012): Latch score:score1|s_next_scoreU[1] has unsafe behavior File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/score-rtl.vhd Line: 20
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal movement_full:movement_x|movement:mov|s_current_state[0] File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/movement-rtl.vhd Line: 33
-Warning (13012): Latch score:score1|s_next_scoreU[2] has unsafe behavior File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/score-rtl.vhd Line: 20
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal movement_full:movement_x|movement:mov|s_current_state[0] File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/movement-rtl.vhd Line: 33
-Warning (13012): Latch score:score1|s_next_scoreU[3] has unsafe behavior File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/score-rtl.vhd Line: 20
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal movement_full:movement_x|movement:mov|s_current_state[0] File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/movement-rtl.vhd Line: 33
-Warning (13012): Latch score:score1|s_next_scoreU[4] has unsafe behavior File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/score-rtl.vhd Line: 20
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal movement_full:movement_x|movement:mov|s_current_state[0] File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/movement-rtl.vhd Line: 33
-Warning (13012): Latch score:score1|s_next_scoreU[5] has unsafe behavior File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/score-rtl.vhd Line: 20
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal movement_full:movement_x|movement:mov|s_current_state[0] File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/movement-rtl.vhd Line: 33
-Warning (13012): Latch score:score1|s_next_scoreU[6] has unsafe behavior File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/score-rtl.vhd Line: 20
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal movement_full:movement_x|movement:mov|s_current_state[0] File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/movement-rtl.vhd Line: 33
-Warning (13012): Latch score:score1|s_next_scoreU[7] has unsafe behavior File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/score-rtl.vhd Line: 20
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal movement_full:movement_x|movement:mov|s_current_state[0] File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/movement-rtl.vhd Line: 33
+Info (12128): Elaborating entity "clock_divider" for hierarchy "clock_divider:clock_div" File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/pong-rtl.vhd Line: 80
+Info (12128): Elaborating entity "movement_full" for hierarchy "movement_full:movement_y" File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/pong-rtl.vhd Line: 85
+Info (12128): Elaborating entity "direction" for hierarchy "movement_full:movement_y|direction:dir" File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/movement_full-rtl.vhd Line: 33
+Info (12128): Elaborating entity "movement" for hierarchy "movement_full:movement_y|movement:mov" File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/movement_full-rtl.vhd Line: 41
+Warning (10492): VHDL Process Statement warning at movement-rtl.vhd(21): signal "ext_change" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/movement-rtl.vhd Line: 21
+Warning (10492): VHDL Process Statement warning at movement-rtl.vhd(22): signal "ext_change" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/movement-rtl.vhd Line: 22
+Warning (10631): VHDL Process Statement warning at movement-rtl.vhd(15): inferring latch(es) for signal or variable "s_next_state", which holds its previous value in one or more paths through the process File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/movement-rtl.vhd Line: 15
+Info (10041): Inferred latch for "s_next_state[0]" at movement-rtl.vhd(15) File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/movement-rtl.vhd Line: 15
+Info (10041): Inferred latch for "s_next_state[1]" at movement-rtl.vhd(15) File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/movement-rtl.vhd Line: 15
+Info (10041): Inferred latch for "s_next_state[2]" at movement-rtl.vhd(15) File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/movement-rtl.vhd Line: 15
+Info (10041): Inferred latch for "s_next_state[3]" at movement-rtl.vhd(15) File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/movement-rtl.vhd Line: 15
+Info (10041): Inferred latch for "s_next_state[4]" at movement-rtl.vhd(15) File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/movement-rtl.vhd Line: 15
+Info (10041): Inferred latch for "s_next_state[5]" at movement-rtl.vhd(15) File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/movement-rtl.vhd Line: 15
+Info (10041): Inferred latch for "s_next_state[6]" at movement-rtl.vhd(15) File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/movement-rtl.vhd Line: 15
+Info (10041): Inferred latch for "s_next_state[7]" at movement-rtl.vhd(15) File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/movement-rtl.vhd Line: 15
+Info (10041): Inferred latch for "s_next_state[8]" at movement-rtl.vhd(15) File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/movement-rtl.vhd Line: 15
+Info (12128): Elaborating entity "movement_full" for hierarchy "movement_full:movement_x" File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/pong-rtl.vhd Line: 96
+Info (12128): Elaborating entity "movement" for hierarchy "movement_full:movement_x|movement:mov" File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/movement_full-rtl.vhd Line: 41
+Warning (10492): VHDL Process Statement warning at movement-rtl.vhd(21): signal "ext_change" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/movement-rtl.vhd Line: 21
+Warning (10492): VHDL Process Statement warning at movement-rtl.vhd(22): signal "ext_change" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/movement-rtl.vhd Line: 22
+Warning (10631): VHDL Process Statement warning at movement-rtl.vhd(15): inferring latch(es) for signal or variable "s_next_state", which holds its previous value in one or more paths through the process File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/movement-rtl.vhd Line: 15
+Info (10041): Inferred latch for "s_next_state[0]" at movement-rtl.vhd(15) File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/movement-rtl.vhd Line: 15
+Info (10041): Inferred latch for "s_next_state[1]" at movement-rtl.vhd(15) File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/movement-rtl.vhd Line: 15
+Info (10041): Inferred latch for "s_next_state[2]" at movement-rtl.vhd(15) File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/movement-rtl.vhd Line: 15
+Info (10041): Inferred latch for "s_next_state[3]" at movement-rtl.vhd(15) File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/movement-rtl.vhd Line: 15
+Info (10041): Inferred latch for "s_next_state[4]" at movement-rtl.vhd(15) File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/movement-rtl.vhd Line: 15
+Info (10041): Inferred latch for "s_next_state[5]" at movement-rtl.vhd(15) File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/movement-rtl.vhd Line: 15
+Info (10041): Inferred latch for "s_next_state[6]" at movement-rtl.vhd(15) File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/movement-rtl.vhd Line: 15
+Info (10041): Inferred latch for "s_next_state[7]" at movement-rtl.vhd(15) File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/movement-rtl.vhd Line: 15
+Info (10041): Inferred latch for "s_next_state[8]" at movement-rtl.vhd(15) File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/movement-rtl.vhd Line: 15
+Info (10041): Inferred latch for "s_next_state[9]" at movement-rtl.vhd(15) File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/movement-rtl.vhd Line: 15
+Info (10041): Inferred latch for "s_next_state[10]" at movement-rtl.vhd(15) File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/movement-rtl.vhd Line: 15
+Info (10041): Inferred latch for "s_next_state[11]" at movement-rtl.vhd(15) File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/movement-rtl.vhd Line: 15
+Info (12128): Elaborating entity "bat" for hierarchy "bat:bat1" File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/pong-rtl.vhd Line: 105
+Info (12128): Elaborating entity "score" for hierarchy "score:score1" File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/pong-rtl.vhd Line: 108
+Warning (10492): VHDL Process Statement warning at score-rtl.vhd(23): signal "s_over" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/score-rtl.vhd Line: 23
+Warning (10631): VHDL Process Statement warning at score-rtl.vhd(21): inferring latch(es) for signal or variable "s_next_scoreU", which holds its previous value in one or more paths through the process File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/score-rtl.vhd Line: 21
+Warning (10631): VHDL Process Statement warning at score-rtl.vhd(21): inferring latch(es) for signal or variable "s_next_scoreS", which holds its previous value in one or more paths through the process File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/score-rtl.vhd Line: 21
+Info (10041): Inferred latch for "s_next_scoreS[0]" at score-rtl.vhd(21) File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/score-rtl.vhd Line: 21
+Info (10041): Inferred latch for "s_next_scoreS[1]" at score-rtl.vhd(21) File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/score-rtl.vhd Line: 21
+Info (10041): Inferred latch for "s_next_scoreS[2]" at score-rtl.vhd(21) File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/score-rtl.vhd Line: 21
+Info (10041): Inferred latch for "s_next_scoreS[3]" at score-rtl.vhd(21) File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/score-rtl.vhd Line: 21
+Info (10041): Inferred latch for "s_next_scoreS[4]" at score-rtl.vhd(21) File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/score-rtl.vhd Line: 21
+Info (10041): Inferred latch for "s_next_scoreS[5]" at score-rtl.vhd(21) File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/score-rtl.vhd Line: 21
+Info (10041): Inferred latch for "s_next_scoreS[6]" at score-rtl.vhd(21) File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/score-rtl.vhd Line: 21
+Info (10041): Inferred latch for "s_next_scoreS[7]" at score-rtl.vhd(21) File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/score-rtl.vhd Line: 21
+Info (10041): Inferred latch for "s_next_scoreU[0]" at score-rtl.vhd(21) File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/score-rtl.vhd Line: 21
+Info (10041): Inferred latch for "s_next_scoreU[1]" at score-rtl.vhd(21) File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/score-rtl.vhd Line: 21
+Info (10041): Inferred latch for "s_next_scoreU[2]" at score-rtl.vhd(21) File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/score-rtl.vhd Line: 21
+Info (10041): Inferred latch for "s_next_scoreU[3]" at score-rtl.vhd(21) File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/score-rtl.vhd Line: 21
+Info (10041): Inferred latch for "s_next_scoreU[4]" at score-rtl.vhd(21) File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/score-rtl.vhd Line: 21
+Info (10041): Inferred latch for "s_next_scoreU[5]" at score-rtl.vhd(21) File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/score-rtl.vhd Line: 21
+Info (10041): Inferred latch for "s_next_scoreU[6]" at score-rtl.vhd(21) File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/score-rtl.vhd Line: 21
+Info (10041): Inferred latch for "s_next_scoreU[7]" at score-rtl.vhd(21) File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/score-rtl.vhd Line: 21
+Info (12128): Elaborating entity "debouncer" for hierarchy "debouncer:debouncer_up1" File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/pong-rtl.vhd Line: 111
+Info (12128): Elaborating entity "collision" for hierarchy "collision:collision1" File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/pong-rtl.vhd Line: 117
+Warning (13012): Latch movement_full:movement_y|movement:mov|s_next_state[0] has unsafe behavior File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/movement-rtl.vhd Line: 15
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal movement_full:movement_y|movement:mov|s_current_state[0] File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/movement-rtl.vhd Line: 36
+Warning (13012): Latch movement_full:movement_x|movement:mov|s_next_state[0] has unsafe behavior File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/movement-rtl.vhd Line: 15
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal movement_full:movement_x|movement:mov|s_current_state[0] File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/movement-rtl.vhd Line: 36
+Warning (13012): Latch movement_full:movement_x|movement:mov|s_next_state[1] has unsafe behavior File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/movement-rtl.vhd Line: 15
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal movement_full:movement_x|movement:mov|s_current_state[0] File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/movement-rtl.vhd Line: 36
+Warning (13012): Latch movement_full:movement_x|movement:mov|s_next_state[2] has unsafe behavior File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/movement-rtl.vhd Line: 15
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal movement_full:movement_x|movement:mov|s_current_state[1] File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/movement-rtl.vhd Line: 36
+Warning (13012): Latch movement_full:movement_x|movement:mov|s_next_state[3] has unsafe behavior File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/movement-rtl.vhd Line: 15
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal movement_full:movement_x|movement:mov|s_current_state[2] File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/movement-rtl.vhd Line: 36
+Warning (13012): Latch movement_full:movement_x|movement:mov|s_next_state[4] has unsafe behavior File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/movement-rtl.vhd Line: 15
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal movement_full:movement_x|movement:mov|s_current_state[3] File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/movement-rtl.vhd Line: 36
+Warning (13012): Latch movement_full:movement_x|movement:mov|s_next_state[5] has unsafe behavior File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/movement-rtl.vhd Line: 15
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal movement_full:movement_x|movement:mov|s_current_state[4] File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/movement-rtl.vhd Line: 36
+Warning (13012): Latch movement_full:movement_x|movement:mov|s_next_state[6] has unsafe behavior File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/movement-rtl.vhd Line: 15
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal movement_full:movement_x|movement:mov|s_current_state[5] File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/movement-rtl.vhd Line: 36
+Warning (13012): Latch movement_full:movement_x|movement:mov|s_next_state[7] has unsafe behavior File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/movement-rtl.vhd Line: 15
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal movement_full:movement_x|movement:mov|s_current_state[6] File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/movement-rtl.vhd Line: 36
+Warning (13012): Latch movement_full:movement_x|movement:mov|s_next_state[8] has unsafe behavior File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/movement-rtl.vhd Line: 15
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal movement_full:movement_x|movement:mov|s_current_state[7] File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/movement-rtl.vhd Line: 36
+Warning (13012): Latch movement_full:movement_x|movement:mov|s_next_state[9] has unsafe behavior File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/movement-rtl.vhd Line: 15
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal movement_full:movement_x|movement:mov|s_current_state[8] File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/movement-rtl.vhd Line: 36
+Warning (13012): Latch movement_full:movement_x|movement:mov|s_next_state[10] has unsafe behavior File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/movement-rtl.vhd Line: 15
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal movement_full:movement_x|movement:mov|s_current_state[9] File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/movement-rtl.vhd Line: 36
+Warning (13012): Latch movement_full:movement_x|movement:mov|s_next_state[11] has unsafe behavior File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/movement-rtl.vhd Line: 15
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal movement_full:movement_x|movement:mov|s_current_state[10] File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/movement-rtl.vhd Line: 36
+Warning (13012): Latch movement_full:movement_y|movement:mov|s_next_state[1] has unsafe behavior File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/movement-rtl.vhd Line: 15
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal movement_full:movement_y|movement:mov|s_current_state[0] File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/movement-rtl.vhd Line: 36
+Warning (13012): Latch movement_full:movement_y|movement:mov|s_next_state[2] has unsafe behavior File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/movement-rtl.vhd Line: 15
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal movement_full:movement_y|direction:dir|s_current_state File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/direction-rtl.vhd Line: 16
+Warning (13012): Latch movement_full:movement_y|movement:mov|s_next_state[3] has unsafe behavior File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/movement-rtl.vhd Line: 15
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal movement_full:movement_y|direction:dir|s_current_state File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/direction-rtl.vhd Line: 16
+Warning (13012): Latch movement_full:movement_y|movement:mov|s_next_state[4] has unsafe behavior File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/movement-rtl.vhd Line: 15
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal movement_full:movement_y|direction:dir|s_current_state File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/direction-rtl.vhd Line: 16
+Warning (13012): Latch movement_full:movement_y|movement:mov|s_next_state[5] has unsafe behavior File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/movement-rtl.vhd Line: 15
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal movement_full:movement_y|direction:dir|s_current_state File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/direction-rtl.vhd Line: 16
+Warning (13012): Latch movement_full:movement_y|movement:mov|s_next_state[6] has unsafe behavior File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/movement-rtl.vhd Line: 15
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal movement_full:movement_y|direction:dir|s_current_state File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/direction-rtl.vhd Line: 16
+Warning (13012): Latch movement_full:movement_y|movement:mov|s_next_state[7] has unsafe behavior File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/movement-rtl.vhd Line: 15
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal movement_full:movement_y|movement:mov|s_current_state[8] File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/movement-rtl.vhd Line: 36
+Warning (13012): Latch movement_full:movement_y|movement:mov|s_next_state[8] has unsafe behavior File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/movement-rtl.vhd Line: 15
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal movement_full:movement_y|movement:mov|s_current_state[0] File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/movement-rtl.vhd Line: 36
+Warning (13012): Latch score:score1|s_next_scoreU[0] has unsafe behavior File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/score-rtl.vhd Line: 21
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal score:score1|s_scoreU[0] File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/score-rtl.vhd Line: 63
+Warning (13012): Latch score:score1|s_next_scoreU[1] has unsafe behavior File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/score-rtl.vhd Line: 21
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal score:score1|s_scoreU[1] File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/score-rtl.vhd Line: 63
+Warning (13012): Latch score:score1|s_next_scoreU[2] has unsafe behavior File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/score-rtl.vhd Line: 21
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal score:score1|s_scoreU[2] File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/score-rtl.vhd Line: 63
+Warning (13012): Latch score:score1|s_next_scoreU[3] has unsafe behavior File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/score-rtl.vhd Line: 21
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal score:score1|s_scoreU[3] File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/score-rtl.vhd Line: 63
+Warning (13012): Latch score:score1|s_next_scoreU[4] has unsafe behavior File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/score-rtl.vhd Line: 21
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal score:score1|s_scoreU[4] File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/score-rtl.vhd Line: 63
+Warning (13012): Latch score:score1|s_next_scoreU[5] has unsafe behavior File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/score-rtl.vhd Line: 21
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal score:score1|s_scoreU[5] File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/score-rtl.vhd Line: 63
+Warning (13012): Latch score:score1|s_next_scoreU[6] has unsafe behavior File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/score-rtl.vhd Line: 21
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal score:score1|s_scoreU[6] File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/score-rtl.vhd Line: 63
+Warning (13012): Latch score:score1|s_next_scoreU[7] has unsafe behavior File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/score-rtl.vhd Line: 21
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal score:score1|s_scoreU[7] File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/score-rtl.vhd Line: 63
+Warning (13012): Latch score:score1|s_next_scoreS[0] has unsafe behavior File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/score-rtl.vhd Line: 21
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal score:score1|s_scoreS[0] File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/score-rtl.vhd Line: 72
+Warning (13012): Latch score:score1|s_next_scoreS[1] has unsafe behavior File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/score-rtl.vhd Line: 21
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal score:score1|s_scoreS[1] File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/score-rtl.vhd Line: 72
+Warning (13012): Latch score:score1|s_next_scoreS[2] has unsafe behavior File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/score-rtl.vhd Line: 21
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal score:score1|s_scoreS[2] File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/score-rtl.vhd Line: 72
+Warning (13012): Latch score:score1|s_next_scoreS[3] has unsafe behavior File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/score-rtl.vhd Line: 21
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal score:score1|s_scoreS[3] File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/score-rtl.vhd Line: 72
+Warning (13012): Latch score:score1|s_next_scoreS[4] has unsafe behavior File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/score-rtl.vhd Line: 21
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal score:score1|s_scoreS[4] File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/score-rtl.vhd Line: 72
+Warning (13012): Latch score:score1|s_next_scoreS[5] has unsafe behavior File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/score-rtl.vhd Line: 21
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal score:score1|s_scoreS[5] File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/score-rtl.vhd Line: 72
+Warning (13012): Latch score:score1|s_next_scoreS[6] has unsafe behavior File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/score-rtl.vhd Line: 21
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal score:score1|s_scoreS[6] File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/score-rtl.vhd Line: 72
+Warning (13012): Latch score:score1|s_next_scoreS[7] has unsafe behavior File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/score-rtl.vhd Line: 21
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal score:score1|s_scoreS[7] File: /media/sf_student/TPCSN/TP7TP8/pong/vhdl/rendu/score-rtl.vhd Line: 72
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 600 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 542 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 4 input pins
     Info (21059): Implemented 124 output pins
-    Info (21061): Implemented 472 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 95 warnings
-    Info: Peak virtual memory: 999 megabytes
-    Info: Processing ended: Thu May  9 00:49:24 2019
-    Info: Elapsed time: 00:00:11
-    Info: Total CPU time (on all processors): 00:00:17
+    Info (21061): Implemented 414 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 84 warnings
+    Info: Peak virtual memory: 1000 megabytes
+    Info: Processing ended: Fri May 10 11:24:20 2019
+    Info: Elapsed time: 00:00:10
+    Info: Total CPU time (on all processors): 00:00:19
 
 

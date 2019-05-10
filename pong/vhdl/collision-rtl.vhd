@@ -6,7 +6,6 @@ architecture rtl of collision is
   constant c_compared : std_logic_vector(8 downto 0) := (others => '0');
   signal   s_next_y    : std_logic_vector (8 downto 0);
   signal s_next_x : std_logic_vector (11 downto 0);
-signal s_and : std_logic_vector (8 downto 0);
 
 begin
 
@@ -32,15 +31,13 @@ begin
   end process;
 
 
-  tryout : process (x_pos, y_pos, s_and)
+  tryout : process (x_pos, y_pos)
   begin
-    if(s_and /= c_compared and (x_bat_left = x_pos or x_bat_right = x_pos)) then
+    if((s_next_y and bat_pos) /= c_compared and (x_bat_left = x_pos or x_bat_right = x_pos)) then
       change <= '1';
     else
       change <= '0';
     end if;
   end process;
-
-s_and <= s_next_y and bat_pos;
 
 end architecture rtl;

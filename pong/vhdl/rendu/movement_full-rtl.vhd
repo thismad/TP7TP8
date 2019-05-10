@@ -7,7 +7,7 @@ architecture rtl of movement_full is
 
   component movement
 	generic (width : natural; INIT : std_logic_vector);
-    port(dir, enable, reset, clock : in  std_logic;
+    port(dir,ext_change, enable, reset, clock : in  std_logic;
          pos                       : out std_logic_vector);
   end component movement;
 
@@ -16,6 +16,7 @@ architecture rtl of movement_full is
   signal s_xor    : std_logic;
   signal s_dirOut : std_logic;
   signal s_posOut : std_logic_vector (WIDTH-1 downto 0);
+  signal s_ext_changed : std_logic;
   
 
 begin
@@ -23,9 +24,11 @@ begin
 
   s_and1 <= s_posOut(width-2) and s_dirOut;
   s_and2 <= s_posOut(1) and not(s_dirOut);
-  s_xor  <= ext_change or s_and1 or s_and2;
+  s_xor  <= (ext_change and s_posOut(width-3)) or s_and1 or s_and2; -- si on est a gauche de la bat alors la direction change sinon non. La dir est deja loaded en avance dans le movement donc on le fait changer en temps reel car le prochain mov est deja calculé anyway
+  s_ext_changed <= not(s_dirOut) when (ext_change = '1' and s_posOut(width-1) ='0') else --permet un changement en bypassant la dir si collision avec bat et qu'on est pas derriere la bat
+						s_dirOut;
 
-
+ 
 -- soldering work
   dir : direction
     -- generic map (INIT => "000010000", WIDTH := 9); -- can i do : (5 => '1', others =>'0')?
@@ -37,7 +40,8 @@ begin
 
   mov : movement
 generic map (width => width, INIT => INIT)
-    port map (dir    => s_dirOut,
+    port map (dir    => s_ext_changed,
+	 ext_change => ext_change,
               enable => enable,
               reset  => reset,
               clock  => clock,

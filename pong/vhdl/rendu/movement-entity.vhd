@@ -5,6 +5,7 @@ entity movement is
 generic(WIDTH : natural := 9;
         INIT  : std_logic_vector := "000010000"); --middle of the card
 port(dir    : in std_logic;
+	  ext_change : in std_logic;
      enable : in std_logic;
      reset  : in std_logic;
      clock  : in std_logic;

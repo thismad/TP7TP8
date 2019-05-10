@@ -11,15 +11,16 @@ architecture rtl of score is
   constant c8 : std_logic_vector := "11111110";
   constant c9 : std_logic_vector := "11110110";
   constant INVALID : std_logic_vector := "11111111";
+  signal s_over : std_logic;
 
   signal s_scoreU, s_next_scoreU, s_scoreS, s_next_scoreS : std_logic_vector (7 downto 0);
 
 begin
   --LogicUpdate
 
-  LogicUpdate : process (enable, clock, X_pos,s_scoreS)
+  LogicUpdate : process (enable, clock, X_pos,s_scoreS, s_scoreU)
   begin
-    if(enable = '1') then
+    if (s_over /= '1') then
       if X_pos = ("000000000001") then  -- gauche
         case s_scoreU is
           when c0 => s_next_scoreU <= c1;
@@ -53,7 +54,7 @@ begin
 	 s_next_scoreU <= s_scoreU;
       end if;
 		
-    end if;
+   end if;
   end process;
   --FlipFlop
 
@@ -77,8 +78,9 @@ end process;
 
 --assigning values to outputs
 
-over <= '1' when s_scoreS = c9 or s_scoreU = c9 else
+s_over <= '1' when s_scoreS = c9 or s_scoreU = c9 else
         '0';
+over <= s_over;
 
 user <= s_scoreU;
 sys  <= s_scoreS;

@@ -5,6 +5,7 @@ architecture rtl of movement is
 
 
 
+
 begin
 
 
@@ -17,7 +18,9 @@ begin
       if(dir = '1') then s_next_state <=  s_current_state(width-2 downto 0) & '0';
       end if;
     elsif (s_current_state(width-1) = '1') then
-      if(dir = '0') then s_next_state <= '0' & s_current_state(width-1 downto 1);
+      if(dir = '0' and ext_change ='0') then s_next_state <= '0' & s_current_state(width-1 downto 1);
+		elsif (dir = '0' and ext_change = '1') then s_next_state <= s_current_state;  --on monte si on est coincé derriere la bat
+
       end if;
     else
       if(dir = '0') then
